@@ -16,7 +16,6 @@ class DiamondTrap : public FragTrap, public ScavTrap {
 		~DiamondTrap(void);
 
 		DiamondTrap&	operator=(DiamondTrap const& other);
-		DiamondTrap&	operator=(ClapTrap const& other);
 
 		void	printStatus(void) const;
 

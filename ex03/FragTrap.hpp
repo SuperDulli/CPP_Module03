@@ -4,7 +4,7 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap {
+class FragTrap : virtual public ClapTrap {
 
 	public:
 
@@ -14,7 +14,6 @@ class FragTrap : public virtual ClapTrap {
 		~FragTrap(void);
 
 		FragTrap&	operator=(FragTrap const& other);
-		FragTrap&	operator=(ClapTrap const& other);
 
 		void	printStatus(void) const;
 

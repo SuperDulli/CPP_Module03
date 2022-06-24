@@ -34,22 +34,14 @@ class ClapTrap {
 
 	protected:
 
-		ClapTrap(
-			std::string name,
-			unsigned int hitPoints,
-			unsigned int energyPoints,
-			unsigned int attackDamage);
-
-		bool	canAttack(std::string const& target) const;
-		bool	canTakeDamage(unsigned int& amount) const;
-		bool	canBeRepaired(void) const;
-
-	private:
-
 		std::string		m_name;
 		unsigned int	m_hitPoints;
 		unsigned int	m_energyPoints;
 		unsigned int	m_attackDamage;
+
+		bool	canAttack(std::string const& target) const;
+		bool	canTakeDamage(unsigned int& amount) const;
+		bool	canBeRepaired(void) const;		
 
 };
 

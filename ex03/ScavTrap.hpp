@@ -4,7 +4,7 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public virtual ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
 	public:
 
@@ -14,7 +14,6 @@ class ScavTrap : public virtual ClapTrap {
 		~ScavTrap(void);
 
 		ScavTrap&	operator=(ScavTrap const& other);
-		ScavTrap&	operator=(ClapTrap const& other);
 
 		bool	isInGateKeeperMode(void) const;
 

@@ -2,23 +2,29 @@
 #include <iostream>
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void): FragTrap(), ScavTrap() {
+DiamondTrap::DiamondTrap(void): ClapTrap("_clap_name"), FragTrap(), ScavTrap() {
 	std::cout << "Default DiamondTrap Constructor called" << std::endl;
+	m_hitPoints = FragTrap::getHitPoints();
+	m_energyPoints = ScavTrap::getEneryPoints();
+	m_attackDamage = FragTrap::getAttackDamage();
 }
 
 DiamondTrap::DiamondTrap(std::string name):
-	ClapTrap(name + "_clap_name", 100, 50, 30),
-	FragTrap(name),
-	ScavTrap(name),
+	ClapTrap(name + "_clap_name"),
+	FragTrap(),
+	ScavTrap(),
 	m_name(name) {
 	std::cout << "DiamondTrap Constructor called with name: " << name << std::endl;
+	m_hitPoints = FragTrap::getHitPoints();
+	m_energyPoints = ScavTrap::getEneryPoints();
+	m_attackDamage = FragTrap::getAttackDamage();
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const& other):
-	ClapTrap(other.getName() + "_clap_name", 100, 50, 30),
-	FragTrap(other.getName()),
-	ScavTrap(other.getName()),
-	m_name(other.getName()) {
+	ClapTrap(other),
+	FragTrap(other),
+	ScavTrap(other),
+	m_name(other.m_name) {
 	std::cout << "DiamondTrap Copy Constructor called: Creating DiamondTrap Copy"
 	<< std::endl;
 }
@@ -31,13 +37,7 @@ DiamondTrap::~DiamondTrap(void) {
 DiamondTrap&	DiamondTrap::operator=(DiamondTrap const& other) {
 	std::cout << "DiamondTrap copy assignment operator called" << std::endl;
 	DiamondTrap();
-	this->m_name = other.getName();
-	return *this;
-}
-
-DiamondTrap&	DiamondTrap::operator=(ClapTrap const& other) {
-	std::cout << "DiamondTrap copy assignment operator called with a ClapTrap" << std::endl;
-	ClapTrap::operator=(other);
+	this->m_name = other.m_name;
 	return *this;
 }
 
@@ -56,7 +56,11 @@ void	DiamondTrap::attack(std::string const& target) {
 }
 
 void	DiamondTrap::whoAmI(void) {
-	std::cout << "My DiamondTrap name is " << this->m_name
-	<< " and my ClapTrap name is " << ClapTrap::getName() << "."
+	std::string toBe = " is ";
+	if (!this->isAlive()) {
+		toBe = " was ";
+	}
+	std::cout << "My DiamondTrap name" << toBe << this->m_name
+	<< " and my ClapTrap name" << toBe << ClapTrap::m_name << "."
 	<< std::endl;
 }

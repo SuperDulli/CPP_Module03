@@ -22,7 +22,19 @@ int	main(void) {
 		diamond.whoAmI();
 		diamond.attack("Handsome Jack");
 		diamond.takeDamage(42);
+		diamond.beRepaired(2);
+		diamond.highFiveGuys();
+		diamond.guardGate();
+		diamond.attack("Player");
 		diamond.printStatus();
+
+		std::cout << "set energy to 0" << std::endl;
+		diamond.setEneryPoints(0);
+		diamond.attack("dummy");
+		std::cout << "set hit points to 0" << std::endl;
+		diamond.setHitPoints(0);
+		diamond.attack("dummy");
+		diamond.whoAmI();
 		std::cout << std::string(80, '-') << std::endl;
 	}
 	{
@@ -35,12 +47,18 @@ int	main(void) {
 		DiamondTrap	b(a);
 
 		b.setName("COPY-DIAMOND-TP");
+		std::cout << "ct = diamond" << std::endl;
 		ct = diamond;
+		std::cout << "ft = diamond" << std::endl;
 		ft = diamond;
+		std::cout << "st = diamond" << std::endl;
 		st = diamond;
 
+		std::cout << "DiamondTrap through ClapTrap" << std::endl;
 		ct.printStatus();
+		std::cout << "DiamondTrap through FragTrap" << std::endl;
 		ft.printStatus();
+		std::cout << "DiamondTrap through ScavTrap" << std::endl;
 		st.printStatus();
 		std::cout << std::string(80, '-') << std::endl;
 	}
@@ -98,19 +116,24 @@ void	testClapTrap(void) {
 }
 
 void	testScavTrap(void) {
+	std::cout << std::string(80, '-') << std::endl;
 	ClapTrap	clappy("CL4P-TP");
 	ClapTrap	ct;
 	ScavTrap	a;
 	ScavTrap	b(a);
 	ScavTrap	scav("SC4V-TP");
 
-	a = clappy;
 	ct = scav;
 
+	std::cout << "clappy: " << std::endl;
 	clappy.printStatus();
+	std::cout << "ct: " << std::endl;
 	ct.printStatus();
+	std::cout << "a: " << std::endl;
 	a.printStatus();
+	std::cout << "b: " << std::endl;
 	b.printStatus();
+	std::cout << "scav: " << std::endl;
 	scav.printStatus();
 	std::cout << std::string(80, '-') << std::endl;
 
@@ -120,8 +143,8 @@ void	testScavTrap(void) {
 	scav.attack(clappy.getName());
 	clappy.takeDamage(scav.getAttackDamage());
 	scav.guardGate();
+	std::cout << "scav: " << std::endl;
 	scav.printStatus();
-	std::cout << std::string(80, '-') << std::endl;
 }
 
 void	testFragTrap(void) {
@@ -131,13 +154,17 @@ void	testFragTrap(void) {
 	FragTrap	b(a);
 	FragTrap	frag("FR4G-TP");
 
-	a = clappy;
 	ct = frag;
 
+	std::cout << "clappy: " << std::endl;
 	clappy.printStatus();
+	std::cout << "ct: " << std::endl;
 	ct.printStatus();
+	std::cout << "a: " << std::endl;
 	a.printStatus();
+	std::cout << "b: " << std::endl;
 	b.printStatus();
+	std::cout << "frag: " << std::endl;
 	frag.printStatus();
 	std::cout << std::string(80, '-') << std::endl;
 
@@ -156,6 +183,6 @@ void	testFragTrap(void) {
 	frag.attack(clappy.getName());
 	clappy.takeDamage(frag.getAttackDamage());
 	frag.printStatus();
+	std::cout << "clappy: " << std::endl;
 	clappy.printStatus();
-	std::cout << std::string(80, '-') << std::endl;
 }
