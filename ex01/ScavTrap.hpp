@@ -14,7 +14,6 @@ class ScavTrap : public ClapTrap {
 		~ScavTrap(void);
 
 		ScavTrap&	operator=(ScavTrap const& other);
-		ScavTrap&	operator=(ClapTrap const& other);
 
 		bool	isInGateKeeperMode(void) const;
 
