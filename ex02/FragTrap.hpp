@@ -14,7 +14,6 @@ class FragTrap : public ClapTrap {
 		~FragTrap(void);
 
 		FragTrap&	operator=(FragTrap const& other);
-		FragTrap&	operator=(ClapTrap const& other);
 
 		void	printStatus(void) const;
 

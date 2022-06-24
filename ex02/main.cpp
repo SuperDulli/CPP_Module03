@@ -19,13 +19,17 @@ int	main(void) {
 	FragTrap	b(a);
 	FragTrap	frag("FR4G-TP");
 
-	a = clappy;
 	ct = frag;
 
+	std::cout << "clappy: " << std::endl;
 	clappy.printStatus();
+	std::cout << "ct: " << std::endl;
 	ct.printStatus();
+	std::cout << "a: " << std::endl;
 	a.printStatus();
+	std::cout << "b: " << std::endl;
 	b.printStatus();
+	std::cout << "frag: " << std::endl;
 	frag.printStatus();
 	std::cout << std::string(80, '-') << std::endl;
 
@@ -44,6 +48,7 @@ int	main(void) {
 	frag.attack(clappy.getName());
 	clappy.takeDamage(frag.getAttackDamage());
 	frag.printStatus();
+	std::cout << "clappy: " << std::endl;
 	clappy.printStatus();
 
 	return 0;
@@ -100,19 +105,24 @@ void	testClapTrap(void) {
 }
 
 void	testScavTrap(void) {
+	std::cout << std::string(80, '-') << std::endl;
 	ClapTrap	clappy("CL4P-TP");
 	ClapTrap	ct;
 	ScavTrap	a;
 	ScavTrap	b(a);
 	ScavTrap	scav("SC4V-TP");
 
-	a = clappy;
 	ct = scav;
 
+	std::cout << "clappy: " << std::endl;
 	clappy.printStatus();
+	std::cout << "ct: " << std::endl;
 	ct.printStatus();
+	std::cout << "a: " << std::endl;
 	a.printStatus();
+	std::cout << "b: " << std::endl;
 	b.printStatus();
+	std::cout << "scav: " << std::endl;
 	scav.printStatus();
 	std::cout << std::string(80, '-') << std::endl;
 
@@ -122,6 +132,6 @@ void	testScavTrap(void) {
 	scav.attack(clappy.getName());
 	clappy.takeDamage(scav.getAttackDamage());
 	scav.guardGate();
+	std::cout << "scav: " << std::endl;
 	scav.printStatus();
-	std::cout << std::string(80, '-') << std::endl;
 }

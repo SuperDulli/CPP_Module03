@@ -5,11 +5,17 @@
 
 ScavTrap::ScavTrap(void): ClapTrap(), m_inGateKeeperMode(false) {
 	std::cout << "Default ScavTrap Constructor called" << std::endl;
+	m_hitPoints = 100;
+	m_energyPoints = 50;
+	m_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name)
-	: ClapTrap(name, 100, 50, 20), m_inGateKeeperMode(false) {
+	: ClapTrap(name), m_inGateKeeperMode(false) {
 	std::cout << "ScavTrap Constructor called with name: " << name << std::endl;
+	m_hitPoints = 100;
+	m_energyPoints = 50;
+	m_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(ScavTrap const& other)
@@ -27,13 +33,6 @@ ScavTrap&	ScavTrap::operator=(ScavTrap const& other) {
 	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	ClapTrap::operator=(other);
 	this->m_inGateKeeperMode = other.isInGateKeeperMode();
-	return *this;
-}
-
-ScavTrap&	ScavTrap::operator=(ClapTrap const& other) {
-	std::cout << "ScavTrap copy assignment operator called with a ClapTrap" << std::endl;
-	ClapTrap::operator=(other);
-	this->m_inGateKeeperMode = false;
 	return *this;
 }
 

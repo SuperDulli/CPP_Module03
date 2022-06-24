@@ -12,23 +12,6 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << "ClapTrap Constructor called with name: " << name << std::endl;
 }
 
-ClapTrap::ClapTrap(
-	std::string name,
-	unsigned int hitPoints,
-	unsigned int energyPoints,
-	unsigned int attackDamage):
-	m_name(name),
-	m_hitPoints(hitPoints),
-	m_energyPoints(energyPoints),
-	m_attackDamage(attackDamage) {
-	std::cout << "ClapTrap Constructor called with "
-	<< "name: " << name << ", "
-	<< "hit points: " << hitPoints << ", "
-	<< "energy points: " << energyPoints << ", "
-	<< "attack damage: " << attackDamage
-	<< std::endl;
-}
-
 ClapTrap::ClapTrap(ClapTrap const& other):
 	m_name(other.getName()),
 	m_hitPoints(other.getHitPoints()),
