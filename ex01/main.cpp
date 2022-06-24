@@ -14,13 +14,17 @@ int	main(void) {
 	ScavTrap	b(a);
 	ScavTrap	scav("SC4V-TP");
 
-	a = clappy;
 	ct = scav;
 
+	std::cout << "clappy: " << std::endl;
 	clappy.printStatus();
+	std::cout << "ct: " << std::endl;
 	ct.printStatus();
+	std::cout << "a: " << std::endl;
 	a.printStatus();
+	std::cout << "b: " << std::endl;
 	b.printStatus();
+	std::cout << "scav: " << std::endl;
 	scav.printStatus();
 	std::cout << std::string(80, '-') << std::endl;
 
@@ -30,6 +34,7 @@ int	main(void) {
 	scav.attack(clappy.getName());
 	clappy.takeDamage(scav.getAttackDamage());
 	scav.guardGate();
+	std::cout << "scav: " << std::endl;
 	scav.printStatus();
 
 	return 0;
